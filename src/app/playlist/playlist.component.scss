@@ -1,7 +1,10 @@
 .playlist {
+  width: 100%;
+  margin: 20px;
   padding: 20px;
   border: 1px solid red;
   li {
+    display: flex;
     margin: 10px;
     .deleteButton {
       margin-left: 5px;
