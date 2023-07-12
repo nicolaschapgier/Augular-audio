@@ -11,15 +11,15 @@ export class PlaylistComponent {
   isPlaying: boolean = false;
   songToPlay!: any;
 
-  play() {
-    this.isPlaying = !this.isPlaying;
-  }
-
   songReceiveToPlay(e: any): void {
     this.songToPlay = e;
   }
 
-  deleteSong(song: string, index: number): void {
+  deleteSong(index: number): void {
     this.arrSongEmitFromForm.splice(index, 1);
+  }
+
+  lunchPlaylist(): void {
+    console.log('coucou');
   }
 }

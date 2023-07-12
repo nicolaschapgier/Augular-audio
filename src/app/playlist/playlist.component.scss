@@ -1,5 +1,10 @@
-.playlist{
+.playlist {
   padding: 20px;
-
-  border : 1px solid red
+  border: 1px solid red;
+  li {
+    margin: 10px;
+    .deleteButton {
+      margin-left: 5px;
+    }
+  }
 }
