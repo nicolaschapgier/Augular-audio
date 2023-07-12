@@ -13,9 +13,17 @@ export class SongComponent {
 
   @Output() songEmitToPlay: EventEmitter<any> = new EventEmitter<any>();
 
-  play() {
-    this.songEmitToPlay.emit(this.song);
-    // this.isPlaying = !this.isPlaying;
-    // event emiter du song
+  currentSongArr: number = 0;
+  audio = new Audio();
+  audioSrc: string = '';
+
+  playAudio() {
+    this.audio.src = this.song.blobFile;
+    this.audio.load();
+    this.audio.play();
+  }
+
+  stopAudio() {
+    this.audio.pause();
   }
 }

@@ -7,25 +7,9 @@
         [isPlaying]="isPlaying"
         (songEmitToPlay)="songReceiveToPlay($event)"
       ></app-song>
-      <button class="deleteButton" (click)="deleteSong(index)">Delete</button>
+      <button class="deleteButton" (click)="deleteSong(index)">Supprimer</button>
     </li>
-    <button (click)="lunchPlaylist()">Lunch playlist</button>
+    <button (click)="lunchPlaylist()">Jouer toute la playlist</button>
   </ol>
-  <!-- ---- -->
-  <!-- Tests -->
-  <!-- ---- -->
-
-  <!-- <ol>
-    <li *ngFor="let song of arrSongEmitFromForm; let index = index">
-      {{ song.title }}
-      <button (click)="play()">Play</button>
-      <p *ngIf="isPlaying">Playing</p>
-      <button (click)="deleteSong(song, index)">Delete</button>
-    </li>
-  </ol> -->
-
-  <!-- ---- -->
-  <!-- Tests -->
-  <!-- ---- -->
 </div>
 <app-lecteur [songsToPlay]="songsToPlay"></app-lecteur>

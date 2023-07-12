@@ -1,6 +1,9 @@
 <div class="song-container">
   <p>Title :</p>
   <p>{{ song.title }}</p>
-  <!-- Au click place le son dans le lecteur -->
-  <button (click)="play()">Play</button>
+  <audio>
+    <source [src]="audioSrc" type="audio/mp3" />
+  </audio>
+  <!-- Au click joue le son -->
+  <button (click)="playAudio()">Play</button>
 </div>
