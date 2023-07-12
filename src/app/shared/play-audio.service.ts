@@ -15,17 +15,20 @@ export class PlayAudioService {
   audio = new Audio();
 
   startPlaylistFromService(songsToPlay: any) {
+    // s'il n'y a plus de son dans le tableau de playlist
+    if (songsToPlay.length === 0) {
+      return this.stopAudio();
+    }
     // si l'index du son à jouer est inférieur à la taille du tableau de sons
     if (this.currentSongArr < songsToPlay.length) {
-      console.log('coucou');
+      console.log('playing');
       this.audioSrc = songsToPlay[this.currentSongArr].blobFile; // on récupère le blob du son à jouer
-      this.audioTitle = songsToPlay[this.currentSongArr].title; // on récupère le title du son à jouer
 
       this.playOneSong(this.audioSrc);
 
       this.endOfList(songsToPlay); // TO DO : peut être que ça génère des problèmes quand un seul son est appelé
     } else {
-      console.log('boucle');
+      console.log('loop');
 
       // on revient au début
       this.currentSongArr = 0;
@@ -49,6 +52,7 @@ export class PlayAudioService {
   }
 
   stopAudio() {
+    console.log('stop');
     this.audio.pause();
   }
 

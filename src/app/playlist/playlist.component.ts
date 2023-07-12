@@ -17,6 +17,10 @@ export class PlaylistComponent {
   }
 
   deleteSong(index: number): void {
+    console.log('arrEmitFromForm : ', this.arrSongEmitFromForm[index]);
+    console.log('songsToPlay : ', this.arrSongEmitFromForm[index]);
+
+    // URL.revokeObjectURL(this.songsToPlay[index]); // empêche la boucle infini si on supprime le morceau en cours de lecture
     this.arrSongEmitFromForm.splice(index, 1);
   }
 

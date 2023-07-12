@@ -11,13 +11,9 @@ export class LecteurComponent {
 
   @Input() songsToPlay!: any;
 
-  songToPlay!: any;
 
-  audioTitle: string = ''; // binding html
   audioSrc: string = ''; // binding html
 
-  currentSongArr: number = 0;
-  audio = new Audio();
 
   playSong() {
     this.audioService.startPlaylistFromService(this.songsToPlay);
@@ -27,5 +23,10 @@ export class LecteurComponent {
     this.audioService.stopAudio();
   }
 
+
+  // currentSongArr: number = 0;
+  // audio = new Audio();
+
+  // songToPlay!: any;
   // this.audio.onended = () +> {index++ playCurrentTrack}
 }

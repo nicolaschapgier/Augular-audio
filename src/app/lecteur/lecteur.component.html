@@ -1,18 +1,23 @@
 <div class="lecteur">
   <p>lecteur works!</p>
   <figure>
-    <figcaption>
+    <!-- ----------- -->
+    <!-- To DO -->
+    <!-- PRINT TITLE -->
+    <!-- ----------- -->
+
+    <!-- <figcaption>
       Listen :
       <p *ngIf="songsToPlay">{{ songsToPlay.title }}</p>
       <p *ngIf="!songsToPlay">Nothing to listen yet</p>
-    </figcaption>
+    </figcaption> -->
 
     <div *ngIf="songsToPlay">
       <audio autoplay loop #audio>
         <source [src]="audioSrc" type="audio/mp3" />
       </audio>
-      <p>{{ audioTitle }}</p>
-      <div *ngIf="songsToPlay.length >=  1">
+      <!-- <p>{{ audioTitle }}</p> -->
+      <div *ngIf="songsToPlay.length >= 1">
         <button (click)="playSong()">listen song</button>
         <button (click)="stopAudioFromService()">Stop audio</button>
       </div>

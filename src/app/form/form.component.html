@@ -15,7 +15,7 @@
       <input
         [type]="selectedOption"
         formControlName="inputValue"
-        [accept]="selectedOption === 'file' ? 'audio/mp3' : ''"
+        [accept]="selectedOption === 'file' ? 'audio/mp3,audio/wav' : ''"
         (change)="onFileChange($event)"
       />
       <label name="title" for="title">Titre :</label>
