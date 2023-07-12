@@ -1,0 +1,30 @@
+<div class="playlist">
+  <p>playlist works!</p>
+  <ol>
+    <li *ngFor="let song of arrSongEmitFromForm; let index = index">
+      <app-song
+        [song]="song"
+        [isPlaying]="isPlaying"
+        (songEmitToPlay)="songReceiveToPlay($event)"
+      ></app-song>
+      <button (click)="deleteSong(song, index)">Delete</button>
+    </li>
+  </ol>
+  <!-- ---- -->
+  <!-- Tests -->
+  <!-- ---- -->
+
+  <!-- <ol>
+    <li *ngFor="let song of arrSongEmitFromForm; let index = index">
+      {{ song.title }}
+      <button (click)="play()">Play</button>
+      <p *ngIf="isPlaying">Playing</p>
+      <button (click)="deleteSong(song, index)">Delete</button>
+    </li>
+  </ol> -->
+
+  <!-- ---- -->
+  <!-- Tests -->
+  <!-- ---- -->
+</div>
+<app-lecteur [songToPlay]="songToPlay"></app-lecteur>

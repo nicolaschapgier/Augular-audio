@@ -1,0 +1,26 @@
+<div class="form">
+  <form action="" [formGroup]="fileForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <label for="inputChoice">Choisissez le type de fichier</label>
+      <select
+        formControlName="inputType"
+        (change)="changeInputValue($event)"
+        name="inputChoice"
+        id="inputChoice"
+        [value]="selectedOption"
+      >
+        <option value="text" selected>url</option>
+        <option value="file">file</option>
+      </select>
+      <input
+        [type]="selectedOption"
+        formControlName="inputValue"
+        [accept]="selectedOption === 'file' ? 'audio/mp3' : ''"
+        (change)="onFileChange($event)"
+      />
+      <label name="title" for="title">Titre :</label>
+      <input id="title" name="title" type="text" formControlName="title" />
+    </fieldset>
+    <button type="submit">Ajouter à la playlist</button>
+  </form>
+</div>
