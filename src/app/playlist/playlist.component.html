@@ -7,7 +7,9 @@
         [isPlaying]="isPlaying"
         (songEmitToPlay)="songReceiveToPlay($event)"
       ></app-song>
-      <button class="deleteButton" (click)="deleteSong(index)">Supprimer</button>
+      <button class="deleteButton" (click)="deleteSong(index)">
+        Supprimer
+      </button>
     </li>
     <button (click)="lunchPlaylist()">Jouer toute la playlist</button>
   </ol>

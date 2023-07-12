@@ -12,9 +12,9 @@
         <source [src]="audioSrc" type="audio/mp3" />
       </audio>
       <p>{{ audioTitle }}</p>
-      <div *ngIf="songsToPlay.length === 1">
+      <div *ngIf="songsToPlay.length >=  1">
         <button (click)="listenSong()">listen song</button>
-        <button (click)="listenSong()">Stop audio</button>
+        <button (click)="stopAudio()">Stop audio</button>
       </div>
     </div>
   </figure>
