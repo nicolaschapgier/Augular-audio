@@ -13,8 +13,8 @@
       </audio>
       <p>{{ audioTitle }}</p>
       <div *ngIf="songsToPlay.length >=  1">
-        <button (click)="listenSong()">listen song</button>
-        <button (click)="stopAudio()">Stop audio</button>
+        <button (click)="playSong()">listen song</button>
+        <button (click)="stopAudioFromService()">Stop audio</button>
       </div>
     </div>
   </figure>

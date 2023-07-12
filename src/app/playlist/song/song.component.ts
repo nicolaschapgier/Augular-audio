@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { PlayAudioService } from 'src/app/shared/play-audio.service';
 
 @Component({
   selector: 'app-song',
@@ -6,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./song.component.scss'],
 })
 export class SongComponent {
-  // constructor(private songService: SongService) {}
+  constructor(private audioService: PlayAudioService) {}
 
   @Input() song!: any;
   @Input() isPlaying!: boolean;
@@ -17,13 +18,7 @@ export class SongComponent {
   audio = new Audio();
   audioSrc: string = '';
 
-  playAudio() {
-    this.audio.src = this.song.blobFile;
-    this.audio.load();
-    this.audio.play();
-  }
-
-  stopAudio() {
-    this.audio.pause();
+  playOneSong() {
+    this.audioService.playOneSong(this.song.blobFile);
   }
 }
