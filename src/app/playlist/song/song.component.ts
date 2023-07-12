@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { SongService } from '../song.service';
 
 @Component({
   selector: 'app-song',

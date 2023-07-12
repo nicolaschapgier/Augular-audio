@@ -9,10 +9,11 @@ export class PlaylistComponent {
   @Input() arrSongEmitFromForm!: any; // on récupère le tableau de chanson
 
   isPlaying: boolean = false;
-  songToPlay!: any;
+  songsToPlay!: any;
+  lecteurArr!: any; // tableau pour le lecteur
 
   songReceiveToPlay(e: any): void {
-    this.songToPlay = e;
+    this.songsToPlay = e;
   }
 
   deleteSong(index: number): void {
@@ -20,6 +21,12 @@ export class PlaylistComponent {
   }
 
   lunchPlaylist(): void {
-    console.log('coucou');
+    console.log('array de chanson ', this.arrSongEmitFromForm);
+    this.songsToPlay = this.arrSongEmitFromForm;
+    // this.songsToPlay.push(this.arrSongEmitFromForm);
+    // on push un index dans lecteur
+    // -- Observable ? -- //
+    // une fois que la chanson est terminée on push la suivante
+    // si il n'y a pas d'index suivant alors on revient à l'index 1
   }
 }

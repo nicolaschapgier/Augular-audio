@@ -3,15 +3,17 @@
   <figure>
     <figcaption>
       Listen :
-      <p *ngIf="songToPlay">{{ songToPlay.title }}</p>
-      <p *ngIf="!songToPlay">Nothing to listen yet</p>
+      <p *ngIf="songsToPlay">{{ songsToPlay.title }}</p>
+      <p *ngIf="!songsToPlay">Nothing to listen yet</p>
     </figcaption>
 
-    <div *ngIf="songToPlay">
+    <div *ngIf="songsToPlay">
       <audio autoplay loop #audio>
-        <source [src]="songToPlay.inputValue" type="audio/mp3" />
+        <source [src]="audioSrc" type="audio/mp3" />
       </audio>
-      <button (click)="play()">Play</button>
+      <p>{{ audioTitle }}</p>
+      <button (click)="listenSong()">listen song</button>
+      <button (click)="stopAudio()">Stop audio</button>
     </div>
   </figure>
 </div>
