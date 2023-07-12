@@ -17,9 +17,20 @@
         <source [src]="audioSrc" type="audio/mp3" />
       </audio>
       <!-- <p>{{ audioTitle }}</p> -->
-      <div *ngIf="songsToPlay.length >= 1">
-        <button (click)="playSong()">listen song</button>
-        <button (click)="stopAudioFromService()">Stop audio</button>
+      <div class="coucou" *ngIf="songsToPlay.length >= 1">
+        <div class="title">
+          <h2>Title :</h2>
+          <p>{{ audioTitle }}</p>
+        </div>
+        <div class="progress-bar">
+          <label for="file">File progress :</label>
+
+          <progress id="file" max="100" value="10">10%</progress>
+        </div>
+        <div class="btn">
+          <button (click)="playSong()">listen song</button>
+          <button (click)="stopAudioFromService()">Stop audio</button>
+        </div>
       </div>
     </div>
   </figure>

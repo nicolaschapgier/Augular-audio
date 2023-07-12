@@ -3,3 +3,25 @@
   padding: 20px;
   border: 1px solid blue;
 }
+
+.coucou {
+  display: flex;
+  flex-direction: column;
+  .progress-bar {
+    label {
+      padding-right: 2 0px;
+    }
+  }
+  .btn {
+    width: 20vw;
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    button:nth-child(1) {
+      color: green;
+    }
+    button:nth-child(2) {
+      color: red;
+    }
+  }
+}

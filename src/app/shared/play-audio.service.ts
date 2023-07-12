@@ -8,8 +8,9 @@ export class PlayAudioService {
 
   songToPlay!: any;
 
-  audioTitle: string = ''; // binding html
   audioSrc: string = ''; // binding html
+  audioTitle: string = '';
+  audioPlaying: boolean = false;
 
   currentSongArr: number = 0;
   audio = new Audio();
@@ -17,16 +18,17 @@ export class PlayAudioService {
   startPlaylistFromService(songsToPlay: any) {
     // s'il n'y a plus de son dans le tableau de playlist
     if (songsToPlay.length === 0) {
-      return this.stopAudio();
+      return this.stopAudio(songsToPlay);
     }
+    
     // si l'index du son à jouer est inférieur à la taille du tableau de sons
     if (this.currentSongArr < songsToPlay.length) {
-      console.log('playing');
       this.audioSrc = songsToPlay[this.currentSongArr].blobFile; // on récupère le blob du son à jouer
 
+      songsToPlay[this.currentSongArr].isPlaying = true; // changer le boolean de isPlaying = true
       this.playOneSong(this.audioSrc);
 
-      this.endOfList(songsToPlay); // TO DO : peut être que ça génère des problèmes quand un seul son est appelé
+      this.endOfList(songsToPlay);
     } else {
       console.log('loop');
 
@@ -37,22 +39,31 @@ export class PlayAudioService {
     return this.audio;
   }
 
-  playOneSong(audioSrc: string) {
+  playOneSong(audioSrc: string, song?: any) {
+    song ? (song.isPlaying = true) : '';
+
     this.audio.src = audioSrc; // on récupère la source pour le audio.play (j'imagine)
     this.audio.load();
+
     this.audio.play();
+    this.audio.onended = () => {
+      this.audio.pause();
+      song.isPlaying = false;
+    };
   }
 
   // loop gestion
   endOfList(songsToPlay: any) {
     this.audio.onended = () => {
+      songsToPlay[this.currentSongArr].isPlaying = false;
       this.currentSongArr++;
       this.startPlaylistFromService(songsToPlay);
     };
   }
 
-  stopAudio() {
+  stopAudio(songsToPlay: any) {
     console.log('stop');
+    songsToPlay[this.currentSongArr].isPlaying = false;
     this.audio.pause();
   }
 

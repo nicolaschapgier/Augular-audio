@@ -1,9 +1,9 @@
 <div class="song-container">
   <p>Title :</p>
-  <p>{{ song.title }}</p>
+  <p [ngClass]="song.isPlaying ? 'playing' : ''">{{ song.title }}</p>
   <audio>
     <source [src]="audioSrc" type="audio/mp3" />
   </audio>
   <!-- Au click joue le son -->
-  <button (click)="playOneSong()">Play</button>
+  <button (click)="playOneSong(song)">Play</button>
 </div>

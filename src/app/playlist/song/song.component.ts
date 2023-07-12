@@ -18,7 +18,7 @@ export class SongComponent {
   audio = new Audio();
   audioSrc: string = '';
 
-  playOneSong() {
-    this.audioService.playOneSong(this.song.blobFile);
+  playOneSong(song: any) {
+    this.audioService.playOneSong(song.blobFile, song);
   }
 }

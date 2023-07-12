@@ -17,6 +17,7 @@ export class FormComponent {
     inputValue: [''],
     title: [''],
     blobFile: [''],
+    isPlaying: false,
   });
 
   changeInputValue(e: any): void {
