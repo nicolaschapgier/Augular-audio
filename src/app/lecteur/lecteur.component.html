@@ -1,43 +1,35 @@
 <div class="lecteur">
   <p>lecteur works!</p>
-  <figure>
-    <!-- ----------- -->
-    <!-- To DO -->
-    <!-- PRINT TITLE -->
-    <!-- ----------- -->
+  <div *ngIf="songsToPlay">
+    <audio
+      autoplay
+      #audio
+      for="audio"
+      (ended)="changeSong()"
+    >
+    
+    </audio>
+    <!-- <p>{{ audioTitle }}</p> -->
+    <div class="coucou" *ngIf="songsToPlay.length >= 1">
+      <div class="title">
+        <h2>Title :</h2>
+      </div>
+      <div class="progress-bar">
+        <label for="file">File progress :</label>
 
-    <!-- <figcaption>
-      Listen :
-      <p *ngIf="songsToPlay">{{ songsToPlay.title }}</p>
-      <p *ngIf="!songsToPlay">Nothing to listen yet</p>
-    </figcaption> -->
-
-    <div *ngIf="songsToPlay">
-      <audio [src]="audioSrc" #audio>
-        <source type="audio/mp3" />
-      </audio>
-      <!-- <p>{{ audioTitle }}</p> -->
-      <div class="coucou" *ngIf="songsToPlay.length >= 1">
-        <div class="title">
-          <h2>Title :</h2>
-          <p>{{ audioTitle }}</p>
-        </div>
-        <div class="progress-bar">
-          <label for="file">File progress :</label>
-
-          <progress
-            id="audio"
-            value="{{ (audio.currentTime / audio.duration) * 100 }}"
-            max="100"
-          >
-            10%
-          </progress>
-        </div>
-        <div class="btn">
-          <button (click)="playSong()">listen song</button>
-          <button (click)="stopAudioFromService()">Stop audio</button>
-        </div>
+        <!-- <progress
+          id="audio"
+          value="{{ (audio.currentTime / audio.duration) * 100 }}"
+          max="100"
+        >
+        </progress> -->
+      </div>
+      <div class="btn">
+        <!-- <button (click)="playSong()">listen song</button> -->
+        <button (click)="playSong2(0)">Listen playlist</button>
+        <button (click)="stopAudio()">Stop audio</button>
+        <!-- <button (click)="stopAudioFromService()">Stop audio</button> -->
       </div>
     </div>
-  </figure>
+  </div>
 </div>
