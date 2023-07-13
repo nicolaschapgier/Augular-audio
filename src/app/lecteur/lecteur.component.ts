@@ -44,14 +44,7 @@ export class LecteurComponent {
     this.audio.pause();
   }
 
-  // playSong() {
-  //   return this.audioService.startPlaylistFromService(this.songsToPlay);
-  // }
-
-  // stopAudioFromService(): void {
-  //   this.audioService.stopAudio(this.songsToPlay);
-  // }
-  progressBar() {
-    // console.log();
+  progressBar(event: any) {
+    console.log(event);
   }
 }

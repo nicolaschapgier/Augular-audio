@@ -4,11 +4,11 @@
     <audio
       autoplay
       #audio
+      #lecteur
       for="audio"
+      (timeupdate)="progressBar($event)"
       (ended)="changeSong()"
-    >
-    
-    </audio>
+    ></audio>
     <!-- <p>{{ audioTitle }}</p> -->
     <div class="coucou" *ngIf="songsToPlay.length >= 1">
       <div class="title">
@@ -17,19 +17,24 @@
       <div class="progress-bar">
         <label for="file">File progress :</label>
 
-        <!-- <progress
+        <progress
           id="audio"
           value="{{ (audio.currentTime / audio.duration) * 100 }}"
           max="100"
         >
-        </progress> -->
+          100%
+        </progress>
       </div>
       <div class="btn">
-        <!-- <button (click)="playSong()">listen song</button> -->
         <button (click)="playSong2(0)">Listen playlist</button>
         <button (click)="stopAudio()">Stop audio</button>
-        <!-- <button (click)="stopAudioFromService()">Stop audio</button> -->
       </div>
     </div>
   </div>
 </div>
+
+<!-- 
+  100% => curentDuration
+  ?% ? => currentime ?
+
+ -->
