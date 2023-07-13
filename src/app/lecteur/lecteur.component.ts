@@ -41,6 +41,7 @@ export class LecteurComponent {
   }
 
   stopAudio() {
+    this.songsToPlay[this.item].isPlaying = false;
     this.audio.pause();
   }
 
