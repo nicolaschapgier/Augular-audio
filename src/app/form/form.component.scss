@@ -1,4 +1,31 @@
 .form {
+  display: flex;
   padding: 20px;
+  margin-bottom: 5px;
+  width: 100vw;
+  height: 15vh;
   border: 3px solid green;
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  .file {
+    display: flex;
+    label {
+      margin-right: 20px;
+      padding: 5px;
+    }
+    select {
+      margin-right: 20px;
+    }
+  }
+  .title {
+    display: flex;
+    label {
+      margin-right: 20px;
+      padding: 5px;
+    }
+  }
 }

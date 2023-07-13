@@ -20,18 +20,17 @@ export class PlayAudioService {
     if (songsToPlay.length === 0) {
       return this.stopAudio(songsToPlay);
     }
-    
+
     // si l'index du son à jouer est inférieur à la taille du tableau de sons
     if (this.currentSongArr < songsToPlay.length) {
-      this.audioSrc = songsToPlay[this.currentSongArr].blobFile; // on récupère le blob du son à jouer
-
+      this.audioSrc = songsToPlay[this.currentSongArr].inputFile; // on récupère le blob du son à jouer
       songsToPlay[this.currentSongArr].isPlaying = true; // changer le boolean de isPlaying = true
+
       this.playOneSong(this.audioSrc);
 
-      this.endOfList(songsToPlay);
+      this.endOfList(songsToPlay); // à la fin du son
     } else {
       console.log('loop');
-
       // on revient au début
       this.currentSongArr = 0;
       this.startPlaylistFromService(songsToPlay);
@@ -43,7 +42,7 @@ export class PlayAudioService {
     song ? (song.isPlaying = true) : '';
 
     this.audio.src = audioSrc; // on récupère la source pour le audio.play (j'imagine)
-    this.audio.load();
+    // this.audio.load();
 
     this.audio.play();
     this.audio.onended = () => {
@@ -79,7 +78,7 @@ export class PlayAudioService {
   //   // si l'index du son à jouer est inférieur à la taille du tableau de sons
   //   if (this.currentSongArr < songsToPlay.length) {
   //     console.log('coucou');
-  //     this.audioSrc = songsToPlay[this.currentSongArr].blobFile; // on récupère le blob du son à jouer
+  //     this.audioSrc = songsToPlay[this.currentSongArr].inputFile; // on récupère le blob du son à jouer
   //     this.audioTitle = songsToPlay[this.currentSongArr].title; // on récupère le title du son à jouer
 
   //     this.audio.src = this.audioSrc; // on récupère la source pour le audio.play (j'imagine)

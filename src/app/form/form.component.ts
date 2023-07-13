@@ -16,7 +16,7 @@ export class FormComponent {
     inputType: ['text'],
     inputValue: [''],
     title: [''],
-    blobFile: [''],
+    inputFile: [''],
     isPlaying: false,
   });
 
@@ -33,7 +33,7 @@ export class FormComponent {
   onSubmit() {
     this.onFileChange;
     this.fileForm.patchValue({
-      blobFile: this.blobLocalMusic,
+      inputFile: this.file,
     });
     // console.log("de l'enfant ", this.fileForm.value);
     this.sendSongToParentComponent();
@@ -44,15 +44,13 @@ export class FormComponent {
     this.songEmitFromForm.emit(this.fileForm.value);
   }
 
-  blobLocalMusic!: string;
+  file!: string;
 
   onFileChange(event: any) {
-    // console.log('event : ', event);
-    let file = event.target.files[0];
-    // console.log('file : ', file);
-    this.blobLocalMusic = URL.createObjectURL(file);
-    console.log(this.blobLocalMusic);
-    return this.blobLocalMusic;
+    this.file =
+      this.selectedOption === 'file'
+        ? URL.createObjectURL(event.target.files[0])
+        : event.target.value;
   }
 
   // reset le formulaire et réassigne inputType text

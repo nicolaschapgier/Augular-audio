@@ -20,10 +20,7 @@ export class LecteurComponent {
   stopAudioFromService(): void {
     this.audioService.stopAudio(this.songsToPlay);
   }
-
-  // currentSongArr: number = 0;
-  // audio = new Audio();
-
-  // songToPlay!: any;
-  // this.audio.onended = () +> {index++ playCurrentTrack}
+  progressBar() {
+    // console.log();
+  }
 }

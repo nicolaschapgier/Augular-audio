@@ -13,8 +13,8 @@
     </figcaption> -->
 
     <div *ngIf="songsToPlay">
-      <audio autoplay loop #audio>
-        <source [src]="audioSrc" type="audio/mp3" />
+      <audio [src]="audioSrc" #audio>
+        <source type="audio/mp3" />
       </audio>
       <!-- <p>{{ audioTitle }}</p> -->
       <div class="coucou" *ngIf="songsToPlay.length >= 1">
@@ -25,7 +25,13 @@
         <div class="progress-bar">
           <label for="file">File progress :</label>
 
-          <progress id="file" max="100" value="10">10%</progress>
+          <progress
+            id="audio"
+            value="{{ (audio.currentTime / audio.duration) * 100 }}"
+            max="100"
+          >
+            10%
+          </progress>
         </div>
         <div class="btn">
           <button (click)="playSong()">listen song</button>
