@@ -7,20 +7,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./song.component.scss'],
 })
 export class SongComponent {
-  // constructor(private audioService: PlayAudioService) {}
-
   @Input() song!: any;
-  @Input() isPlaying!: boolean;
-
-  @Output() songEmitToPlay: EventEmitter<any> = new EventEmitter<any>();
 
   currentSongArr: number = 0;
   audio = new Audio();
   audioSrc: string = '';
-
-  // playOneSong(song: any) {
-  //   this.audioService.playOneSong(song.inputFile, song);
-  // }
 
   playSong2() {
     this.audio.src = this.song.inputFile;

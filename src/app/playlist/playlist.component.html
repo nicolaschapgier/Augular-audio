@@ -4,8 +4,6 @@
     <li *ngFor="let song of arrSongEmitFromForm; let index = index">
       <app-song
         [song]="song"
-        [isPlaying]="isPlaying"
-        (songEmitToPlay)="songReceiveToPlay($event)"
       ></app-song>
       <button class="deleteButton" (click)="deleteSong(index)">
         Supprimer

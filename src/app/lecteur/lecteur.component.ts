@@ -22,7 +22,26 @@ export class LecteurComponent {
 
   ngAfterViewInit() {
     this.audio = this.audioRef.nativeElement;
-    console.log(this.audio);
+  }
+
+  playSong2(item: number) {
+    this.songsToPlay[item].isPlaying = true;
+    this.audio.src = this.songsToPlay[item].inputFile;
+    this.audio.load();
+    this.audio.play();
+  }
+
+  changeSong() {
+    this.songsToPlay[this.item].isPlaying = false;
+
+    // loop management
+    this.item =
+      this.item === this.songsToPlay.length - 1 ? 0 : (this.item += 1);
+    this.playSong2(this.item);
+  }
+
+  stopAudio() {
+    this.audio.pause();
   }
 
   // playSong() {
@@ -34,21 +53,5 @@ export class LecteurComponent {
   // }
   progressBar() {
     // console.log();
-  }
-
-  playSong2(item: number) {
-    this.audio.src = this.songsToPlay[item].inputFile;
-    this.audio.load();
-    this.audio.play();
-  }
-  changeSong() {
-    // loop management
-    this.item =
-      this.item === this.songsToPlay.length - 1 ? 0 : (this.item += 1);
-    this.playSong2(this.item);
-  }
-
-  stopAudio() {
-    this.audio.pause();
   }
 }
